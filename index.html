@@ -1,1 +1,443 @@
-gg
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f4ed">
+  <meta name="description" content="Jolujaz: artesanías hechas con dedicación, creatividad y amor.">
+  <title>Jolujaz | Artesanías con encanto</title>
+
+  <style>
+    :root {
+      --fondo: #f8f4ed;
+      --papel: #fffdf9;
+      --texto: #342c27;
+      --suave: #796d63;
+      --acento: #8a6650;
+      --borde: #e9dfd3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .barra {
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--borde);
+      background: var(--papel);
+    }
+
+    .logo {
+      font-size: 30px;
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    .sublogo {
+      color: var(--suave);
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid var(--acento);
+      background: var(--acento);
+      color: white;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .boton:hover {
+      background: #6e4f3d;
+    }
+
+    .portada {
+      padding: 85px 7%;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #eadbca 0%, transparent 65%);
+    }
+
+    .etiqueta {
+      color: var(--acento);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 20px auto;
+      font-size: clamp(38px, 7vw, 68px);
+      font-weight: normal;
+      line-height: 1.1;
+    }
+
+    .portada p {
+      max-width: 530px;
+      margin: 0 auto 28px;
+      color: var(--suave);
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 6%;
+    }
+
+    .encabezado {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 34px;
+      font-weight: normal;
+    }
+
+    .encabezado p {
+      margin-top: 8px;
+      color: var(--suave);
+    }
+
+    .filtros {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 25px 0 35px;
+    }
+
+    .filtros button {
+      padding: 9px 15px;
+      border: 1px solid var(--borde);
+      background: var(--papel);
+      color: var(--texto);
+      cursor: pointer;
+    }
+
+    .filtros button.activo {
+      background: var(--acento);
+      color: white;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .producto {
+      overflow: hidden;
+      background: var(--papel);
+      border: 1px solid var(--borde);
+    }
+
+    .producto img {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      background: #eee4d8;
+    }
+
+    .producto-info {
+      padding: 19px;
+    }
+
+    .producto h3 {
+      margin-bottom: 5px;
+      font-size: 21px;
+      font-weight: normal;
+    }
+
+    .producto p {
+      color: var(--suave);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .precio {
+      margin: 12px 0;
+      font-size: 21px;
+    }
+
+    .producto .boton {
+      width: 100%;
+      text-align: center;
+    }
+
+    .vacio {
+      grid-column: 1 / -1;
+      padding: 35px;
+      color: var(--suave);
+      text-align: center;
+    }
+
+    .historia {
+      margin-top: 65px;
+      padding: 50px 25px;
+      background: #eee4d8;
+      text-align: center;
+    }
+
+    .historia p {
+      max-width: 600px;
+      margin: 15px auto 0;
+      color: #66584e;
+    }
+
+    footer {
+      padding: 30px 6%;
+      background: var(--papel);
+      text-align: center;
+      color: var(--suave);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .catalogo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .producto img {
+        height: 190px;
+      }
+
+      .barra {
+        padding: 18px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .catalogo {
+        grid-template-columns: 1fr;
+      }
+
+      .producto img {
+        height: 250px;
+      }
+
+      .portada {
+        padding: 65px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="barra">
+    <div>
+      <div class="logo">JOLUJAZ</div>
+      <div class="sublogo">Artesanías con encanto</div>
+    </div>
+
+    <a class="boton" id="contacto-header" href="#">
+      Consultar
+    </a>
+  </header>
+
+  <section class="portada">
+    <span class="etiqueta">Hecho con dedicación</span>
+    <h1>Pequeños detalles, grandes emociones.</h1>
+    <p>
+      Descubrí artesanías únicas, creadas con creatividad,
+      paciencia y mucho amor.
+    </p>
+    <a class="boton" href="#catalogo">Explorar catálogo</a>
+  </section>
+
+  <main>
+    <section id="catalogo">
+      <div class="encabezado">
+        <span class="etiqueta">Nuestra colección</span>
+        <h2>Artesanías</h2>
+        <p>Encontrá ese detalle especial que estabas buscando.</p>
+      </div>
+
+      <div class="filtros" id="filtros">
+        <button class="activo" data-categoria="Todas">Todas</button>
+      </div>
+
+      <div class="catalogo" id="productos">
+        <div class="vacio">Cargando catálogo...</div>
+      </div>
+    </section>
+
+    <section class="historia">
+      <span class="etiqueta">La esencia de Jolujaz</span>
+      <h2>Creaciones con identidad propia</h2>
+      <p>
+        Cada pieza tiene su encanto. Queremos que encuentres
+        artesanías especiales para regalar, decorar o disfrutar.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>JOLUJAZ · Artesanías con encanto</p>
+    <p>Gracias por apoyar un emprendimiento artesanal.</p>
+  </footer>
+
+  <script>
+    // WhatsApp del emprendimiento, con código de Argentina.
+    const WHATSAPP = "542235138891";
+
+    const contacto = document.getElementById("contacto-header");
+    contacto.href = `https://wa.me/${WHATSAPP}`;
+
+    let productos = [];
+    let categoriaActual = "Todas";
+
+    const contenedor = document.getElementById("productos");
+    const filtros = document.getElementById("filtros");
+
+    function consultarProducto(nombre) {
+      const mensaje = `Hola! Quería consultar por la artesanía "${nombre}" de Jolujaz.`;
+      window.open(
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+
+    function mostrarProductos() {
+      const visibles = productos.filter(p =>
+        p.is_available &&
+        (categoriaActual === "Todas" ||
+         p.category === categoriaActual)
+      );
+
+      contenedor.replaceChildren();
+
+      if (!visibles.length) {
+        const mensaje = document.createElement("div");
+        mensaje.className = "vacio";
+        mensaje.textContent =
+          "Próximamente vas a encontrar nuestras artesanías acá.";
+        contenedor.appendChild(mensaje);
+        return;
+      }
+
+      visibles.forEach(p => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "producto";
+
+        if (p.image_url) {
+          const imagen = document.createElement("img");
+          imagen.src = p.image_url;
+          imagen.alt = p.name;
+          imagen.loading = "lazy";
+          tarjeta.appendChild(imagen);
+        }
+
+        const info = document.createElement("div");
+        info.className = "producto-info";
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = p.name;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = p.description || "";
+
+        const precio = document.createElement("div");
+        precio.className = "precio";
+        precio.textContent = Number(p.price).toLocaleString("es-AR", {
+          style: "currency",
+          currency: "ARS",
+          maximumFractionDigits: 2
+        });
+
+        const boton = document.createElement("button");
+        boton.className = "boton";
+        boton.textContent = "Consultar por WhatsApp";
+        boton.addEventListener("click", () => consultarProducto(p.name));
+
+        info.append(titulo, descripcion, precio, boton);
+        tarjeta.appendChild(info);
+        contenedor.appendChild(tarjeta);
+      });
+    }
+
+    function crearFiltros() {
+      const categorias = [
+        "Todas",
+        ...new Set(productos
+          .filter(p => p.is_available)
+          .map(p => p.category || "Artesanías"))
+      ];
+
+      filtros.replaceChildren();
+
+      categorias.forEach(categoria => {
+        const boton = document.createElement("button");
+        boton.textContent = categoria;
+        boton.classList.toggle("activo", categoria === categoriaActual);
+
+        boton.addEventListener("click", () => {
+          categoriaActual = categoria;
+          crearFiltros();
+          mostrarProductos();
+        });
+
+        filtros.appendChild(boton);
+      });
+
+      if (!categorias.includes(categoriaActual)) {
+        categoriaActual = "Todas";
+      }
+    }
+
+    async function cargarProductos() {
+      try {
+        // Se conecta a Supabase cuando configuremos sus datos públicos.
+        // Mientras tanto, la página muestra un catálogo vacío.
+        const mensaje = document.createElement("div");
+        mensaje.className = "vacio";
+        mensaje.textContent =
+          "Estamos preparando nuestra colección. ¡Muy pronto!";
+        contenedor.replaceChildren(mensaje);
+      } catch (error) {
+        contenedor.textContent = "No pudimos cargar el catálogo.";
+      }
+    }
+
+    cargarProductos();
+  </script>
+</body>
+</html>

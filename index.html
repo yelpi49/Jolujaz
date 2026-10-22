@@ -3,9 +3,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f4ed">
-  <meta name="description" content="Jolujaz: artesanías hechas con dedicación, creatividad y amor.">
+  <meta name="description" content="Jolujaz: artesanías únicas hechas con dedicación.">
   <title>Jolujaz | Artesanías con encanto</title>
 
   <style>
@@ -18,11 +18,7 @@
       --borde: #e9dfd3;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: var(--fondo);
@@ -31,64 +27,45 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select {
-      font: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .barra {
       padding: 22px 7%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      border-bottom: 1px solid var(--borde);
+      align-items: center;
+      gap: 15px;
       background: var(--papel);
+      border-bottom: 1px solid var(--borde);
     }
 
-    .logo {
-      font-size: 30px;
-      letter-spacing: 4px;
-      font-weight: bold;
-    }
+    .logo { font-size: 30px; letter-spacing: 4px; font-weight: bold; }
 
     .sublogo {
       color: var(--suave);
-      font-family: Arial, sans-serif;
-      font-size: 10px;
+      font: 10px Arial, sans-serif;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .boton {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 11px 17px;
       border: 1px solid var(--acento);
       background: var(--acento);
       color: white;
       cursor: pointer;
-      transition: .2s;
-    }
-
-    .boton:hover {
-      background: #6e4f3d;
     }
 
     .portada {
       padding: 85px 7%;
       text-align: center;
-      background:
-        radial-gradient(ellipse at top, #eadbca 0%, transparent 65%);
+      background: radial-gradient(ellipse at top, #eadbca, transparent 70%);
     }
 
     .etiqueta {
       color: var(--acento);
-      font-family: Arial, sans-serif;
-      font-size: 12px;
+      font: 12px Arial, sans-serif;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
@@ -108,26 +85,12 @@
       font-size: 17px;
     }
 
-    main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 6%;
-    }
+    main { max-width: 1200px; margin: auto; padding: 55px 6%; }
 
-    .encabezado {
-      margin-bottom: 25px;
-      text-align: center;
-    }
+    .encabezado { margin-bottom: 25px; text-align: center; }
+    h2 { font-size: 34px; font-weight: normal; }
 
-    h2 {
-      font-size: 34px;
-      font-weight: normal;
-    }
-
-    .encabezado p {
-      margin-top: 8px;
-      color: var(--suave);
-    }
+    .encabezado p { margin-top: 8px; color: var(--suave); }
 
     .filtros {
       display: flex;
@@ -145,10 +108,7 @@
       cursor: pointer;
     }
 
-    .filtros button.activo {
-      background: var(--acento);
-      color: white;
-    }
+    .filtros button.activo { background: var(--acento); color: white; }
 
     .catalogo {
       display: grid;
@@ -156,106 +116,30 @@
       gap: 25px;
     }
 
-    .producto {
-      overflow: hidden;
-      background: var(--papel);
-      border: 1px solid var(--borde);
-    }
+    .producto { overflow: hidden; background: var(--papel); border: 1px solid var(--borde); }
+    .producto img { width: 100%; height: 245px; object-fit: cover; display: block; background: #eee4d8; }
+    .producto-info { padding: 19px; }
+    .producto h3 { font-size: 21px; font-weight: normal; }
+    .producto p { color: var(--suave); font: 14px Arial, sans-serif; }
+    .precio { margin: 12px 0; font-size: 21px; }
+    .producto .boton { width: 100%; }
+    .vacio { grid-column: 1 / -1; padding: 35px; text-align: center; color: var(--suave); }
 
-    .producto img {
-      display: block;
-      width: 100%;
-      height: 245px;
-      object-fit: cover;
-      background: #eee4d8;
-    }
+    .historia { margin-top: 65px; padding: 50px 25px; background: #eee4d8; text-align: center; }
+    .historia p { max-width: 600px; margin: 15px auto 0; color: #66584e; }
 
-    .producto-info {
-      padding: 19px;
-    }
-
-    .producto h3 {
-      margin-bottom: 5px;
-      font-size: 21px;
-      font-weight: normal;
-    }
-
-    .producto p {
-      color: var(--suave);
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-
-    .precio {
-      margin: 12px 0;
-      font-size: 21px;
-    }
-
-    .producto .boton {
-      width: 100%;
-      text-align: center;
-    }
-
-    .vacio {
-      grid-column: 1 / -1;
-      padding: 35px;
-      color: var(--suave);
-      text-align: center;
-    }
-
-    .historia {
-      margin-top: 65px;
-      padding: 50px 25px;
-      background: #eee4d8;
-      text-align: center;
-    }
-
-    .historia p {
-      max-width: 600px;
-      margin: 15px auto 0;
-      color: #66584e;
-    }
-
-    footer {
-      padding: 30px 6%;
-      background: var(--papel);
-      text-align: center;
-      color: var(--suave);
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-    }
+    footer { padding: 30px; background: var(--papel); text-align: center; color: var(--suave); font: 13px Arial, sans-serif; }
 
     @media (max-width: 800px) {
-      .catalogo {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .producto img {
-        height: 190px;
-      }
-
-      .barra {
-        padding: 18px 5%;
-      }
+      .catalogo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .producto img { height: 190px; }
     }
 
     @media (max-width: 480px) {
-      .logo {
-        font-size: 24px;
-      }
-
-      .catalogo {
-        grid-template-columns: 1fr;
-      }
-
-      .producto img {
-        height: 250px;
-      }
-
-      .portada {
-        padding: 65px 6%;
-      }
+      .logo { font-size: 24px; }
+      .catalogo { grid-template-columns: 1fr; }
+      .producto img { height: 250px; }
+      .portada { padding: 65px 6%; }
     }
   </style>
 </head>
@@ -266,19 +150,13 @@
       <div class="logo">JOLUJAZ</div>
       <div class="sublogo">Artesanías con encanto</div>
     </div>
-
-    <a class="boton" id="contacto-header" href="#">
-      Consultar
-    </a>
+    <a class="boton" id="contacto-header" href="#">Consultar</a>
   </header>
 
   <section class="portada">
     <span class="etiqueta">Hecho con dedicación</span>
     <h1>Pequeños detalles, grandes emociones.</h1>
-    <p>
-      Descubrí artesanías únicas, creadas con creatividad,
-      paciencia y mucho amor.
-    </p>
+    <p>Descubrí artesanías únicas, creadas con creatividad, paciencia y mucho amor.</p>
     <a class="boton" href="#catalogo">Explorar catálogo</a>
   </section>
 
@@ -290,22 +168,16 @@
         <p>Encontrá ese detalle especial que estabas buscando.</p>
       </div>
 
-      <div class="filtros" id="filtros">
-        <button class="activo" data-categoria="Todas">Todas</button>
-      </div>
-
+      <div class="filtros" id="filtros"></div>
       <div class="catalogo" id="productos">
-        <div class="vacio">Cargando catálogo...</div>
+        <div class="vacio">Preparando nuestra colección...</div>
       </div>
     </section>
 
     <section class="historia">
       <span class="etiqueta">La esencia de Jolujaz</span>
       <h2>Creaciones con identidad propia</h2>
-      <p>
-        Cada pieza tiene su encanto. Queremos que encuentres
-        artesanías especiales para regalar, decorar o disfrutar.
-      </p>
+      <p>Cada pieza tiene su encanto. Encontrá artesanías especiales para regalar, decorar o disfrutar.</p>
     </section>
   </main>
 
@@ -314,21 +186,32 @@
     <p>Gracias por apoyar un emprendimiento artesanal.</p>
   </footer>
 
-  <script>
-    // WhatsApp del emprendimiento, con código de Argentina.
+  <script type="module">
+    import { createClient } from
+      "https://esm.sh/@supabase/supabase-js@2";
+
+    // Clave pública proporcionada por vos.
+    const SUPABASE_KEY =
+      "sb_publishable_lwRFIRznPByEKHkVE6WEFw_KKIsF5Qx";
+
+    // FALTA completar esta URL desde Supabase.
+    const SUPABASE_URL = "PEGAR_AQUI_LA_URL_DE_TU_PROYECTO";
+
     const WHATSAPP = "542235138891";
 
     const contacto = document.getElementById("contacto-header");
+    const contenedor = document.getElementById("productos");
+    const filtros = document.getElementById("filtros");
+
     contacto.href = `https://wa.me/${WHATSAPP}`;
 
     let productos = [];
     let categoriaActual = "Todas";
 
-    const contenedor = document.getElementById("productos");
-    const filtros = document.getElementById("filtros");
-
     function consultarProducto(nombre) {
-      const mensaje = `Hola! Quería consultar por la artesanía "${nombre}" de Jolujaz.`;
+      const mensaje =
+        `Hola! Quería consultar por la artesanía "${nombre}" de Jolujaz.`;
+
       window.open(
         `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`,
         "_blank",
@@ -340,7 +223,7 @@
       const visibles = productos.filter(p =>
         p.is_available &&
         (categoriaActual === "Todas" ||
-         p.category === categoriaActual)
+         (p.category || "Artesanías") === categoriaActual)
       );
 
       contenedor.replaceChildren();
@@ -402,6 +285,10 @@
           .map(p => p.category || "Artesanías"))
       ];
 
+      if (!categorias.includes(categoriaActual)) {
+        categoriaActual = "Todas";
+      }
+
       filtros.replaceChildren();
 
       categorias.forEach(categoria => {
@@ -417,27 +304,37 @@
 
         filtros.appendChild(boton);
       });
-
-      if (!categorias.includes(categoriaActual)) {
-        categoriaActual = "Todas";
-      }
     }
 
-    async function cargarProductos() {
+    async function iniciar() {
+      if (SUPABASE_URL.includes("PEGAR_AQUI")) {
+        contenedor.textContent =
+          "La tienda está en preparación. Próximamente vas a poder ver nuestra colección.";
+        return;
+      }
+
       try {
-        // Se conecta a Supabase cuando configuremos sus datos públicos.
-        // Mientras tanto, la página muestra un catálogo vacío.
-        const mensaje = document.createElement("div");
-        mensaje.className = "vacio";
-        mensaje.textContent =
-          "Estamos preparando nuestra colección. ¡Muy pronto!";
-        contenedor.replaceChildren(mensaje);
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const { data, error } = await supabase
+          .from("products")
+          .select("id,name,description,price,image_url,category,is_available")
+          .eq("is_available", true)
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        productos = data || [];
+        crearFiltros();
+        mostrarProductos();
       } catch (error) {
-        contenedor.textContent = "No pudimos cargar el catálogo.";
+        console.error("No se pudo cargar el catálogo:", error);
+        contenedor.textContent =
+          "No pudimos cargar el catálogo en este momento. Intentá nuevamente más tarde.";
       }
     }
 
-    cargarProductos();
+    iniciar();
   </script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Jolujaz | Preparar producto</title>
+<style>
+body{margin:0;background:#FBF6EE;color:#3B2A20;font:17px/1.6 system-ui,sans-serif;padding:24px 18px}
+main{max-width:560px;margin:0 auto}h1{font-size:1.6rem;margin:0 0 4px}
+label{display:block;font-weight:600;margin-top:16px}
+input,textarea,select{width:100%;font:inherit;padding:12px 14px;border-radius:12px;border:1px solid #E5D5BF;background:#fff;color:#3B2A20;margin-top:6px}
+button{margin-top:18px;border:0;background:#C0603A;color:#fff;font:inherit;font-weight:600;padding:14px 26px;border-radius:999px;cursor:pointer}
+textarea{font-family:ui-monospace,monospace;font-size:.85rem}
+.note{color:#6E5B4E;font-size:.95rem}#res{display:none;margin-top:24px;background:#fff;border-radius:16px;padding:18px}
+</style></head><body><main>
+<h1>Preparar un producto</h1>
+<p class="note">Esta herramienta no publica nada. Prepara la foto y el texto para que usted los suba a GitHub.</p>
+<label>Nombre del producto<input id="name" maxlength="60"></label>
+<label>Descripción<textarea id="desc" rows="3" maxlength="300"></textarea></label>
+<label>Categoría<select id="cat"><option>Velas</option><option>Porta llaves</option><option>Otras artesanías</option></select></label>
+<label>Foto<input id="pic" type="file" accept="image/*"></label>
+<label>Contenido actual de productos.json <span class="note">(péguelo aquí; si está vacío, déjelo en blanco)</span><textarea id="cur" rows="4"></textarea></label>
+<button id="go" type="button">Preparar</button>
+<p id="msg" class="note"></p>
+<div id="res"><b>Paso 1.</b> Se descargó la foto. Súbala a la carpeta <code>fotos</code> de GitHub.<br><br>
+<b>Paso 2.</b> Copie este texto y péguelo completo en <code>productos.json</code>, reemplazando lo anterior:
+<textarea id="out" rows="10" readonly></textarea>
+<button id="copy" type="button">Copiar texto</button></div>
+<script>
+var $=function(i){return document.getElementById(i)};
+async function shrink(f){try{var bm=await createImageBitmap(f),s=Math.min(1,1200/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);return await new Promise(function(r){c.toBlob(function(b){r(b||f)},"image/jpeg",.85)})}catch(e){return f}}
+$("go").onclick=async function(){
+var name=$("name").value.trim(),list=[],raw=$("cur").value.trim();
+if(!name){$("msg").textContent="Escriba el nombre del producto.";return}
+if(raw){try{list=JSON.parse(raw);if(!Array.isArray(list))throw 0}catch(e){$("msg").textContent="El texto de productos.json no es válido. Cópielo completo.";return}}
+var p={name:name,desc:$("desc").value.trim(),cat:$("cat").value},f=$("pic").files[0];
+if(f){var slug=(name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"producto")+"-"+Date.now().toString(36).slice(-4);
+p.img="fotos/"+slug+".jpg";var blob=await shrink(f),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=slug+".jpg";a.click()}
+list.unshift(p);$("out").value=JSON.stringify(list,null,2);$("res").style.display="block";$("msg").textContent=""};
+$("copy").onclick=function(){$("out").select();try{document.execCommand("copy");this.textContent="Copiado"}catch(e){}};
+</script></main></body></html>

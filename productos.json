@@ -1,5 +1,11 @@
 [
   {
+    "name": "Porta llavero",
+    "desc": "(Grande)",
+    "cat": "Velas",
+    "img": "fotos/porta-llavero-cx3r.jpg"
+  },
+  {
     "name": "Vela",
     "desc": "Linda",
     "cat": "Velas",

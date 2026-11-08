@@ -1,340 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f4ed">
-  <meta name="description" content="Jolujaz: artesanías únicas hechas con dedicación.">
-  <title>Jolujaz | Artesanías con encanto</title>
-
-  <style>
-    :root {
-      --fondo: #f8f4ed;
-      --papel: #fffdf9;
-      --texto: #342c27;
-      --suave: #796d63;
-      --acento: #8a6650;
-      --borde: #e9dfd3;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--fondo);
-      color: var(--texto);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .barra {
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      background: var(--papel);
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .logo { font-size: 30px; letter-spacing: 4px; font-weight: bold; }
-
-    .sublogo {
-      color: var(--suave);
-      font: 10px Arial, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .boton {
-      display: inline-block;
-      padding: 11px 17px;
-      border: 1px solid var(--acento);
-      background: var(--acento);
-      color: white;
-      cursor: pointer;
-    }
-
-    .portada {
-      padding: 85px 7%;
-      text-align: center;
-      background: radial-gradient(ellipse at top, #eadbca, transparent 70%);
-    }
-
-    .etiqueta {
-      color: var(--acento);
-      font: 12px Arial, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 760px;
-      margin: 20px auto;
-      font-size: clamp(38px, 7vw, 68px);
-      font-weight: normal;
-      line-height: 1.1;
-    }
-
-    .portada p {
-      max-width: 530px;
-      margin: 0 auto 28px;
-      color: var(--suave);
-      font-size: 17px;
-    }
-
-    main { max-width: 1200px; margin: auto; padding: 55px 6%; }
-
-    .encabezado { margin-bottom: 25px; text-align: center; }
-    h2 { font-size: 34px; font-weight: normal; }
-
-    .encabezado p { margin-top: 8px; color: var(--suave); }
-
-    .filtros {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 25px 0 35px;
-    }
-
-    .filtros button {
-      padding: 9px 15px;
-      border: 1px solid var(--borde);
-      background: var(--papel);
-      color: var(--texto);
-      cursor: pointer;
-    }
-
-    .filtros button.activo { background: var(--acento); color: white; }
-
-    .catalogo {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .producto { overflow: hidden; background: var(--papel); border: 1px solid var(--borde); }
-    .producto img { width: 100%; height: 245px; object-fit: cover; display: block; background: #eee4d8; }
-    .producto-info { padding: 19px; }
-    .producto h3 { font-size: 21px; font-weight: normal; }
-    .producto p { color: var(--suave); font: 14px Arial, sans-serif; }
-    .precio { margin: 12px 0; font-size: 21px; }
-    .producto .boton { width: 100%; }
-    .vacio { grid-column: 1 / -1; padding: 35px; text-align: center; color: var(--suave); }
-
-    .historia { margin-top: 65px; padding: 50px 25px; background: #eee4d8; text-align: center; }
-    .historia p { max-width: 600px; margin: 15px auto 0; color: #66584e; }
-
-    footer { padding: 30px; background: var(--papel); text-align: center; color: var(--suave); font: 13px Arial, sans-serif; }
-
-    @media (max-width: 800px) {
-      .catalogo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .producto img { height: 190px; }
-    }
-
-    @media (max-width: 480px) {
-      .logo { font-size: 24px; }
-      .catalogo { grid-template-columns: 1fr; }
-      .producto img { height: 250px; }
-      .portada { padding: 65px 6%; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jolujaz | Velas, porta llaves y artesanías hechas a mano</title>
+<meta name="description" content="Jolujaz: velas, porta llaves y artesanías hechas a mano, pensadas para regalar o para darte un gusto. Pedí por WhatsApp.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{--bg:#FBF6EE;--card:#fff;--ink:#3B2A20;--muted:#6E5B4E;--accent:#C0603A;--accent-d:#9E4A28;--sand:#F0E3D0;--sage:#7C8B6A;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241A14;--card:#33261E;--ink:#F7EDE0;--muted:#CDBBA9;--accent:#E0845C;--accent-d:#C0603A;--sand:#3C2D23;--sage:#A3B38F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#241A14;--card:#33261E;--ink:#F7EDE0;--muted:#CDBBA9;--accent:#E0845C;--accent-d:#C0603A;--sand:#3C2D23;--sage:#A3B38F;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65;font-size:17px}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,8vw,3.8rem)}h2{font-size:clamp(1.7rem,5.5vw,2.5rem);text-align:center}h3{font-size:1.4rem}
+section{padding:72px 20px}
+.wrap{max-width:1000px;margin:0 auto}
+.hero{background:radial-gradient(circle at 85% 10%,var(--sand),transparent 55%),var(--bg);text-align:center;padding-top:88px}
+.eyebrow{display:inline-block;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:16px}
+.hero p{max-width:540px;margin:0 auto 32px;color:var(--muted);font-size:1.15rem}
+.flame{font-size:3rem;display:block;margin-bottom:8px;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:16px 32px;border-radius:999px;box-shadow:0 8px 20px rgba(192,96,58,.28);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-3px);background:var(--accent-d)}
+.btn.sm{padding:13px 24px;width:100%;text-align:center}
+.pains,.cards,.steps{display:grid;gap:18px;margin-top:36px}
+.pain,.step{background:var(--card);border-radius:20px;padding:24px;box-shadow:0 6px 18px rgba(59,42,32,.07)}
+.pain span,.step b{font-size:1.6rem;display:block;margin-bottom:6px}
+.step b{font-family:"Playfair Display",serif;color:var(--accent)}
+.alt{background:var(--sand)}
+.card{background:var(--card);border-radius:24px;padding:28px;box-shadow:0 10px 26px rgba(59,42,32,.09);display:flex;flex-direction:column;transition:transform .25s}
+.card:hover{transform:translateY(-5px)}
+.card .ico{font-size:2.4rem}
+.card ul{padding-left:20px;margin:0 0 24px;color:var(--muted);flex:1}
+.about{max-width:640px;margin:0 auto;text-align:center;color:var(--muted)}
+.about h2{color:var(--ink)}
+details{background:var(--card);border-radius:16px;padding:18px 22px;margin-top:12px;box-shadow:0 4px 12px rgba(59,42,32,.06)}
+summary{cursor:pointer;font-weight:600;list-style:none}
+summary::after{content:"+";float:right;color:var(--accent);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted)}
+.final{text-align:center;background:var(--accent);color:#fff}
+.final h2{color:#fff}.final p{max-width:520px;margin:0 auto 28px;opacity:.95}
+.final .btn{background:#fff;color:var(--accent-d);box-shadow:none}
+footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.95rem}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:transform .2s;z-index:20}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px;fill:#fff}
+.catq{display:block;width:100%;max-width:520px;margin:24px auto 0;font:inherit;padding:14px 22px;border-radius:999px;border:2px solid var(--sand);background:var(--card);color:var(--ink)}
+.catq:focus{outline:none;border-color:var(--accent)}
+.catsub{text-align:center;color:var(--muted);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0 8px}
+.chip{border:0;font:inherit;font-weight:600;font-size:.9rem;padding:9px 18px;border-radius:999px;background:var(--sand);color:var(--ink);cursor:pointer;transition:background .2s}
+.chip.on,.chip:hover{background:var(--accent);color:#fff}
+.products{display:grid;gap:18px;margin-top:20px;grid-template-columns:1fr}
+.pc{background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 8px 22px rgba(59,42,32,.09);display:flex;flex-direction:column;position:relative;transition:transform .25s}
+.pc:hover{transform:translateY(-4px)}
+.pc .ph{aspect-ratio:1;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.pc img{width:100%;height:100%;object-fit:cover;display:block}
+.pc .pb{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc .tag{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage)}
+.pc h3{margin:0;font-size:1.25rem}
+.pc p{margin:0 0 10px;color:var(--muted);font-size:.97rem;flex:1}
+.pc .del{position:absolute;top:10px;right:10px;border:0;background:#fff;color:#9E4A28;font-weight:600;border-radius:999px;padding:6px 12px;cursor:pointer}
+.catempty{text-align:center;color:var(--muted);margin-top:24px}
+.galadmin input[type=text],.galadmin textarea{display:block;width:100%;max-width:380px;margin:8px auto;font:inherit;padding:10px 14px;border-radius:12px;border:1px solid var(--sand);background:var(--bg);color:var(--ink)}
+.galadmin .btn.alt2{background:var(--sand);color:var(--ink);box-shadow:none;margin-right:6px}
+@media(min-width:600px){.products{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.products{grid-template-columns:repeat(3,1fr)}}
+[hidden]{display:none!important}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px}
+.gal figure{margin:0;position:relative;border-radius:20px;overflow:hidden;background:var(--sand);box-shadow:0 6px 18px rgba(59,42,32,.1)}
+.gal img{display:block;width:100%;aspect-ratio:1;object-fit:cover;transition:transform .4s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.92);color:#3B2A20;font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:14px;width:fit-content;max-width:calc(100% - 20px)}
+.gal .del{position:absolute;top:10px;right:10px;border:0;background:#fff;color:#9E4A28;font-weight:600;border-radius:999px;padding:6px 12px;cursor:pointer}
+.galadmin{background:var(--card);border:2px dashed var(--accent);border-radius:20px;padding:20px;margin-top:28px;text-align:center}
+.galadmin select{font:inherit;padding:10px 14px;border-radius:12px;border:1px solid var(--sand);background:var(--bg);color:var(--ink);margin:8px 0}
+.galadmin .btn{border:0;cursor:pointer;font:inherit;font-weight:600}
+@media(min-width:760px){.gal{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.pains,.cards,.steps{grid-template-columns:repeat(3,1fr)}section{padding:96px 24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
-  <header class="barra">
-    <div>
-      <div class="logo">JOLUJAZ</div>
-      <div class="sublogo">Artesanías con encanto</div>
-    </div>
-    <a class="boton" id="contacto-header" href="#">Consultar</a>
-  </header>
 
-  <section class="portada">
-    <span class="etiqueta">Hecho con dedicación</span>
-    <h1>Pequeños detalles, grandes emociones.</h1>
-    <p>Descubrí artesanías únicas, creadas con creatividad, paciencia y mucho amor.</p>
-    <a class="boton" href="#catalogo">Explorar catálogo</a>
-  </section>
+<section class="hero">
+<div class="wrap">
+<span class="flame" aria-hidden="true">🕯️</span>
+<span class="eyebrow">Jolujaz · Hecho a mano</span>
+<h1>Regalá algo hecho a mano que se quede en el corazón</h1>
+<p>Velas, porta llaves y artesanías únicas, creadas con cuidado para vos o para esa persona especial.</p>
+<a class="btn" href="https://wa.me/542235138891?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n">Escribinos por WhatsApp</a>
+</div>
+</section>
 
-  <main>
-    <section id="catalogo">
-      <div class="encabezado">
-        <span class="etiqueta">Nuestra colección</span>
-        <h2>Artesanías</h2>
-        <p>Encontrá ese detalle especial que estabas buscando.</p>
-      </div>
+<section>
+<div class="wrap">
+<h2>¿Te pasa esto cuando buscás un regalo?</h2>
+<div class="pains">
+<div class="pain"><span>🎁</span><p>Todo lo que encontrás se parece a lo de siempre y se siente impersonal.</p></div>
+<div class="pain"><span>⏳</span><p>Querés algo lindo, pero no tenés tiempo de recorrer mil locales.</p></div>
+<div class="pain"><span>💭</span><p>Buscás un detalle con historia, que alguien realmente haya hecho con las manos.</p></div>
+</div>
+</div>
+</section>
 
-      <div class="filtros" id="filtros"></div>
-      <div class="catalogo" id="productos">
-        <div class="vacio">Preparando nuestra colección...</div>
-      </div>
-    </section>
+<section class="alt">
+<div class="wrap">
+<h2>Lo que hacemos</h2>
+<div class="cards">
+<div class="card"><div class="ico">🕯️</div><h3>Velas</h3>
+<ul><li>Hechas a mano, una por una</li><li>Para regalar o para tu propio rincón</li><li>Un detalle que da calidez al ambiente</li></ul>
+<a class="btn sm" href="https://wa.me/542235138891?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20velas">Quiero velas</a></div>
+<div class="card"><div class="ico">🔑</div><h3>Porta llaves</h3>
+<ul><li>Artesanales y con personalidad</li><li>Un regalo útil que se usa todos los días</li><li>Fáciles de regalar a cualquier persona</li></ul>
+<a class="btn sm" href="https://wa.me/542235138891?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20porta%20llaves">Quiero porta llaves</a></div>
+<div class="card"><div class="ico">✨</div><h3>Otras artesanías</h3>
+<ul><li>Piezas únicas hechas a mano</li><li>Ideas distintas para sorprender</li><li>Consultanos qué tenemos disponible</li></ul>
+<a class="btn sm" href="https://wa.me/542235138891?text=Hola%2C%20quiero%20ver%20otras%20artesan%C3%ADas">Ver otras artesanías</a></div>
+</div>
+</div>
+</section>
 
-    <section class="historia">
-      <span class="etiqueta">La esencia de Jolujaz</span>
-      <h2>Creaciones con identidad propia</h2>
-      <p>Cada pieza tiene su encanto. Encontrá artesanías especiales para regalar, decorar o disfrutar.</p>
-    </section>
-  </main>
+<section>
+<div class="wrap">
+<h2>Cómo funciona</h2>
+<div class="steps">
+<div class="step"><b>1</b><h3>Escribinos</h3><p>Contanos qué buscás por WhatsApp.</p></div>
+<div class="step"><b>2</b><h3>Elegí</h3><p>Te mostramos lo que tenemos y te ayudamos a decidir.</p></div>
+<div class="step"><b>3</b><h3>Recibilo</h3><p>Coordinamos juntos la entrega y listo.</p></div>
+</div>
+</div>
+</section>
 
-  <footer>
-    <p>JOLUJAZ · Artesanías con encanto</p>
-    <p>Gracias por apoyar un emprendimiento artesanal.</p>
-  </footer>
+<section id="catsec" hidden>
+<div class="wrap">
+<h2>Nuestros productos</h2>
+<p class="catsub">Fotos reales de lo que hacemos. Busque por nombre o filtre por categoría.</p>
+<input type="search" id="catq" class="catq" placeholder="Buscar un producto..." aria-label="Buscar un producto">
+<div class="chips"><button type="button" class="chip on">Todos</button><button type="button" class="chip">Velas</button><button type="button" class="chip">Porta llaves</button><button type="button" class="chip">Otras artesanías</button></div>
+<div class="products" id="cat"></div>
+<p class="catempty" id="catempty" hidden>No encontramos productos con esa búsqueda.</p>
+<div class="galadmin" id="catadmin" data-admin hidden>
+<p><b>Modo administración</b><br>Solo usted ve esto. Agregue un producto con su foto y descripción.</p>
+<input type="text" id="catname" maxlength="60" placeholder="Nombre del producto">
+<textarea id="catdesc" maxlength="300" rows="3" placeholder="Descripción del producto"></textarea>
+<select id="catsel"><option>Velas</option><option>Porta llaves</option><option>Otras artesanías</option></select><br>
+<input type="file" id="catfile" accept="image/*" hidden>
+<button class="btn alt2" type="button" id="catpick">Elegir foto</button>
+<button class="btn" type="button" id="catsave">Guardar producto</button>
+<p id="catmsg" style="margin:10px 0 0;color:var(--muted)"></p>
+</div>
+<script type="application/json" id="state">{"products":[]}</script>
+</div>
+</section>
 
-  <script type="module">
-    import { createClient } from
-      "https://esm.sh/@supabase/supabase-js@2";
+<section class="alt">
+<div class="about">
+<h2>Sobre Jolujaz</h2>
+<p>Jolujaz es un emprendimiento de artesanía. Cada vela y cada porta llaves se hace a mano, con dedicación. Creemos que un buen regalo no tiene que ser caro, tiene que tener cariño. Por eso trabajamos con piezas para cualquier persona y cualquier ocasión.</p>
+</div>
+</section>
 
-    // Clave pública proporcionada por vos.
-    const SUPABASE_KEY =
-      "sb_publishable_lwRFIRznPByEKHkVE6WEFw_KKIsF5Qx";
+<section>
+<div class="wrap" style="max-width:700px">
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Quién puede comprar?</summary><p>Cualquier persona. Nuestras piezas están pensadas para regalar o para darse un gusto.</p></details>
+<details><summary>¿Cómo hago un pedido?</summary><p>Escribinos por WhatsApp, contanos qué te interesa y lo coordinamos por ahí.</p></details>
+<details><summary>¿Puedo pedir algo en particular?</summary><p>Consultanos por WhatsApp. Te contamos qué es posible según lo que estés buscando.</p></details>
+<details><summary>¿Cómo sé qué hay disponible?</summary><p>Como son piezas hechas a mano, lo disponible puede cambiar. Escribinos y te mostramos lo que hay.</p></details>
+</div>
+</section>
 
-    // FALTA completar esta URL desde Supabase.
-    const SUPABASE_URL = "https://optrttlydknqlrxcobmu.supabase.co";
+<section class="final">
+<div class="wrap">
+<h2>Tu próximo regalo favorito está hecho a mano</h2>
+<p>Escribinos hoy y encontremos juntos esa pieza especial.</p>
+<a class="btn" href="https://wa.me/542235138891?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n">Hablar por WhatsApp</a>
+</div>
+</section>
 
-    const WHATSAPP = "542235138891";
+<footer>© <span id="y">2026</span> Jolujaz · Artesanía hecha a mano · WhatsApp +54 223 513-8891</footer>
 
-    const contacto = document.getElementById("contacto-header");
-    const contenedor = document.getElementById("productos");
-    const filtros = document.getElementById("filtros");
+<a class="wa" aria-label="Escribinos por WhatsApp" href="https://wa.me/542235138891?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20informaci%C3%B3n">
+<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"/></svg>
+</a>
 
-    contacto.href = `https://wa.me/${WHATSAPP}`;
-
-    let productos = [];
-    let categoriaActual = "Todas";
-
-    function consultarProducto(nombre) {
-      const mensaje =
-        `Hola! Quería consultar por la artesanía "${nombre}" de Jolujaz.`;
-
-      window.open(
-        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`,
-        "_blank",
-        "noopener,noreferrer"
-      );
-    }
-
-    function mostrarProductos() {
-      const visibles = productos.filter(p =>
-        p.is_available &&
-        (categoriaActual === "Todas" ||
-         (p.category || "Artesanías") === categoriaActual)
-      );
-
-      contenedor.replaceChildren();
-
-      if (!visibles.length) {
-        const mensaje = document.createElement("div");
-        mensaje.className = "vacio";
-        mensaje.textContent =
-          "Próximamente vas a encontrar nuestras artesanías acá.";
-        contenedor.appendChild(mensaje);
-        return;
-      }
-
-      visibles.forEach(p => {
-        const tarjeta = document.createElement("article");
-        tarjeta.className = "producto";
-
-        if (p.image_url) {
-          const imagen = document.createElement("img");
-          imagen.src = p.image_url;
-          imagen.alt = p.name;
-          imagen.loading = "lazy";
-          tarjeta.appendChild(imagen);
-        }
-
-        const info = document.createElement("div");
-        info.className = "producto-info";
-
-        const titulo = document.createElement("h3");
-        titulo.textContent = p.name;
-
-        const descripcion = document.createElement("p");
-        descripcion.textContent = p.description || "";
-
-        const precio = document.createElement("div");
-        precio.className = "precio";
-        precio.textContent = Number(p.price).toLocaleString("es-AR", {
-          style: "currency",
-          currency: "ARS",
-          maximumFractionDigits: 2
-        });
-
-        const boton = document.createElement("button");
-        boton.className = "boton";
-        boton.textContent = "Consultar por WhatsApp";
-        boton.addEventListener("click", () => consultarProducto(p.name));
-
-        info.append(titulo, descripcion, precio, boton);
-        tarjeta.appendChild(info);
-        contenedor.appendChild(tarjeta);
-      });
-    }
-
-    function crearFiltros() {
-      const categorias = [
-        "Todas",
-        ...new Set(productos
-          .filter(p => p.is_available)
-          .map(p => p.category || "Artesanías"))
-      ];
-
-      if (!categorias.includes(categoriaActual)) {
-        categoriaActual = "Todas";
-      }
-
-      filtros.replaceChildren();
-
-      categorias.forEach(categoria => {
-        const boton = document.createElement("button");
-        boton.textContent = categoria;
-        boton.classList.toggle("activo", categoria === categoriaActual);
-
-        boton.addEventListener("click", () => {
-          categoriaActual = categoria;
-          crearFiltros();
-          mostrarProductos();
-        });
-
-        filtros.appendChild(boton);
-      });
-    }
-
-    async function iniciar() {
-      if (SUPABASE_URL.includes("PEGAR_AQUI")) {
-        contenedor.textContent =
-          "La tienda está en preparación. Próximamente vas a poder ver nuestra colección.";
-        return;
-      }
-
-      try {
-        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        const { data, error } = await supabase
-          .from("products")
-          .select("id,name,description,price,image_url,category,is_available")
-          .eq("is_available", true)
-          .order("created_at", { ascending: false });
-
-        if (error) throw error;
-
-        productos = data || [];
-        crearFiltros();
-        mostrarProductos();
-      } catch (error) {
-        console.error("No se pudo cargar el catálogo:", error);
-        contenedor.textContent =
-          "No pudimos cargar el catálogo en este momento. Intentá nuevamente más tarde.";
-      }
-    }
-
-    iniciar();
-  </script>
+<script>
+document.getElementById("y").textContent=new Date().getFullYear();
+(function(){
+var $=function(i){return document.getElementById(i)};
+var S;try{S=JSON.parse($("state").textContent)}catch(e){S={products:[]}}
+if(!S.products)S.products=[];
+var grid=$("cat"),sec=$("catsec"),panel=$("catadmin"),q=$("catq"),empty=$("catempty"),msg=$("catmsg"),chips=document.querySelectorAll(".chip"),filt="Todos",assets=null,art=null;
+var ICON={"Velas":"🕯️","Porta llaves":"🔑","Otras artesanías":"✨"};
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function render(){
+grid.innerHTML="";var t=norm(q.value.trim()),n=0;
+S.products.forEach(function(p,i){
+if(filt!=="Todos"&&p.cat!==filt)return;
+if(t&&norm(p.name+" "+(p.desc||"")+" "+p.cat).indexOf(t)<0)return;
+n++;
+var c=document.createElement("article"),ph=document.createElement("div"),b=document.createElement("div"),tg=document.createElement("span"),h=document.createElement("h3"),d=document.createElement("p"),a=document.createElement("a");
+c.className="pc";ph.className="ph";
+if(p.img){var im=document.createElement("img");im.src=p.img;im.alt=p.name;im.loading="lazy";ph.append(im)}else{ph.textContent=ICON[p.cat]||"✨"}
+b.className="pb";tg.className="tag";tg.textContent=p.cat;h.textContent=p.name;d.textContent=p.desc||"";
+a.className="btn sm";a.textContent="Pedir este producto";
+a.href="https://wa.me/542235138891?text="+encodeURIComponent("Hola, quiero información sobre: "+p.name);
+b.append(tg,h);if(p.desc)b.append(d);b.append(a);c.append(ph,b);
+if(assets){var x=document.createElement("button");x.className="del";x.type="button";x.textContent="Quitar";x.setAttribute("data-admin","");x.onclick=function(){if(confirm("¿Quitar este producto?")){S.products.splice(i,1);save()}};c.append(x)}
+grid.append(c)});
+empty.hidden=n>0||!S.products.length;
+sec.hidden=!S.products.length&&!assets}
+async function save(){msg.textContent="Publicando cambios...";try{var c=document.documentElement.cloneNode(true);c.querySelectorAll("[data-admin]").forEach(function(n){n.remove()});c.querySelector("#cat").innerHTML="";c.querySelectorAll(".chip").forEach(function(x,i){x.className=i?"chip":"chip on"});c.querySelector("#state").textContent=JSON.stringify(S).replace(/</g,"\\u003c");await art.publish("<!DOCTYPE html>\n"+c.outerHTML)}catch(e){msg.textContent="No se pudo guardar. Intente de nuevo."}}
+async function shrink(f){try{var bm=await createImageBitmap(f),s=Math.min(1,1200/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);return await new Promise(function(r){c.toBlob(function(b){r(b||f)},"image/jpeg",.85)})}catch(e){return f}}
+q.oninput=render;
+chips.forEach(function(ch){ch.onclick=function(){filt=ch.textContent;chips.forEach(function(x){x.classList.toggle("on",x===ch)});render()}});
+$("catpick").onclick=function(){$("catfile").click()};
+$("catfile").onchange=function(){var f=this.files[0];$("catpick").textContent=f?"Foto: "+f.name.slice(0,22):"Elegir foto"};
+$("catsave").onclick=async function(){
+var name=$("catname").value.trim();if(!name){msg.textContent="Escriba el nombre del producto.";return}
+var b=this;b.disabled=true;msg.textContent="Guardando...";
+var p={name:name,desc:$("catdesc").value.trim(),cat:$("catsel").value},f=$("catfile").files[0];
+try{if(f){var r=await assets.upload(await shrink(f));p.id=r.id;p.img="/_blob/"+r.id}}catch(e){msg.textContent="No se pudo subir la foto. Intente de nuevo.";b.disabled=false;return}
+S.products.unshift(p);await save();b.disabled=false};
+render();
+if(window.claude&&claude.use){Promise.all([claude.use("assets"),claude.use("artifact")]).then(function(a){if(a[0]&&a[1]){assets=a[0];art=a[1];panel.hidden=false;render()}}).catch(function(){})}
+})();
+</script>
 </body>
 </html>

@@ -144,17 +144,6 @@ footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.95rem}
 <div class="chips"><button type="button" class="chip on">Todos</button><button type="button" class="chip">Velas</button><button type="button" class="chip">Porta llaves</button><button type="button" class="chip">Otras artesanías</button></div>
 <div class="products" id="cat"></div>
 <p class="catempty" id="catempty" hidden>No encontramos productos con esa búsqueda.</p>
-<div class="galadmin" id="catadmin" data-admin hidden>
-<p><b>Modo administración</b><br>Solo usted ve esto. Agregue un producto con su foto y descripción.</p>
-<input type="text" id="catname" maxlength="60" placeholder="Nombre del producto">
-<textarea id="catdesc" maxlength="300" rows="3" placeholder="Descripción del producto"></textarea>
-<select id="catsel"><option>Velas</option><option>Porta llaves</option><option>Otras artesanías</option></select><br>
-<input type="file" id="catfile" accept="image/*" hidden>
-<button class="btn alt2" type="button" id="catpick">Elegir foto</button>
-<button class="btn" type="button" id="catsave">Guardar producto</button>
-<p id="catmsg" style="margin:10px 0 0;color:var(--muted)"></p>
-</div>
-<script type="application/json" id="state">{"products":[]}</script>
 </div>
 </section>
 
@@ -193,14 +182,12 @@ footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.95rem}
 document.getElementById("y").textContent=new Date().getFullYear();
 (function(){
 var $=function(i){return document.getElementById(i)};
-var S;try{S=JSON.parse($("state").textContent)}catch(e){S={products:[]}}
-if(!S.products)S.products=[];
-var grid=$("cat"),sec=$("catsec"),panel=$("catadmin"),q=$("catq"),empty=$("catempty"),msg=$("catmsg"),chips=document.querySelectorAll(".chip"),filt="Todos",assets=null,art=null;
+var P=[],grid=$("cat"),sec=$("catsec"),q=$("catq"),empty=$("catempty"),chips=document.querySelectorAll(".chip"),filt="Todos";
 var ICON={"Velas":"🕯️","Porta llaves":"🔑","Otras artesanías":"✨"};
 function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
 function render(){
 grid.innerHTML="";var t=norm(q.value.trim()),n=0;
-S.products.forEach(function(p,i){
+P.forEach(function(p){
 if(filt!=="Todos"&&p.cat!==filt)return;
 if(t&&norm(p.name+" "+(p.desc||"")+" "+p.cat).indexOf(t)<0)return;
 n++;
@@ -210,25 +197,11 @@ if(p.img){var im=document.createElement("img");im.src=p.img;im.alt=p.name;im.loa
 b.className="pb";tg.className="tag";tg.textContent=p.cat;h.textContent=p.name;d.textContent=p.desc||"";
 a.className="btn sm";a.textContent="Pedir este producto";
 a.href="https://wa.me/542235138891?text="+encodeURIComponent("Hola, quiero información sobre: "+p.name);
-b.append(tg,h);if(p.desc)b.append(d);b.append(a);c.append(ph,b);
-if(assets){var x=document.createElement("button");x.className="del";x.type="button";x.textContent="Quitar";x.setAttribute("data-admin","");x.onclick=function(){if(confirm("¿Quitar este producto?")){S.products.splice(i,1);save()}};c.append(x)}
-grid.append(c)});
-empty.hidden=n>0||!S.products.length;
-sec.hidden=!S.products.length&&!assets}
-async function save(){msg.textContent="Publicando cambios...";try{var c=document.documentElement.cloneNode(true);c.querySelectorAll("[data-admin]").forEach(function(n){n.remove()});c.querySelector("#cat").innerHTML="";c.querySelectorAll(".chip").forEach(function(x,i){x.className=i?"chip":"chip on"});c.querySelector("#state").textContent=JSON.stringify(S).replace(/</g,"\\u003c");await art.publish("<!DOCTYPE html>\n"+c.outerHTML)}catch(e){msg.textContent="No se pudo guardar. Intente de nuevo."}}
-async function shrink(f){try{var bm=await createImageBitmap(f),s=Math.min(1,1200/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);return await new Promise(function(r){c.toBlob(function(b){r(b||f)},"image/jpeg",.85)})}catch(e){return f}}
+b.append(tg,h);if(p.desc)b.append(d);b.append(a);c.append(ph,b);grid.append(c)});
+empty.hidden=n>0||!P.length;sec.hidden=!P.length}
 q.oninput=render;
 chips.forEach(function(ch){ch.onclick=function(){filt=ch.textContent;chips.forEach(function(x){x.classList.toggle("on",x===ch)});render()}});
-$("catpick").onclick=function(){$("catfile").click()};
-$("catfile").onchange=function(){var f=this.files[0];$("catpick").textContent=f?"Foto: "+f.name.slice(0,22):"Elegir foto"};
-$("catsave").onclick=async function(){
-var name=$("catname").value.trim();if(!name){msg.textContent="Escriba el nombre del producto.";return}
-var b=this;b.disabled=true;msg.textContent="Guardando...";
-var p={name:name,desc:$("catdesc").value.trim(),cat:$("catsel").value},f=$("catfile").files[0];
-try{if(f){var r=await assets.upload(await shrink(f));p.id=r.id;p.img="/_blob/"+r.id}}catch(e){msg.textContent="No se pudo subir la foto. Intente de nuevo.";b.disabled=false;return}
-S.products.unshift(p);await save();b.disabled=false};
-render();
-if(window.claude&&claude.use){Promise.all([claude.use("assets"),claude.use("artifact")]).then(function(a){if(a[0]&&a[1]){assets=a[0];art=a[1];panel.hidden=false;render()}}).catch(function(){})}
+fetch("productos.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(l){P=Array.isArray(l)?l:[];render()}).catch(function(){});
 })();
 </script>
 </body>

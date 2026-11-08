@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "name": "Vela",
+    "desc": "Linda",
+    "cat": "Velas",
+    "img": "fotos/vela-8lat.jpg"
+  }
+]
